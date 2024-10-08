@@ -1,3 +1,54 @@
+/* body {
+  font-family: 'Arial', sans-serif; */
+  /* background-color: #1e1e1e; Dark background */
+  /* color: white; Light text for contrast */
+  /* margin: 0;
+  padding: 0;
+  text-align: center;
+} */
+
+/* h1 {
+  color: #ff4d00; Title color */
+  /* font-size: 2.5rem;
+  margin: 20px 0; */
+/* }
+
+h2 {
+  color: #61dafb; Subtitle color */
+  /* font-size: 1.8rem;
+  margin: 15px 0;
+} */
+
+/* p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+} */
+
+/* .weather-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+} */
+
+/* .weather-card {
+  background-color: #282c34;
+  border-radius: 8px;
+  margin: 15px;
+  padding: 20px;
+  width: 350px; /* Make card wider to accommodate photos */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}  */
+
+/* .mars-photo {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+} */
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #1e1e1e; /* Dark background */
@@ -8,7 +59,7 @@ body {
 }
 
 h1 {
-  color: #ff4d00; /* Title color */
+  color: #ff4500; /* Title color */
   font-size: 2.5rem;
   margin: 20px 0;
 }
@@ -36,15 +87,13 @@ p {
   border-radius: 8px;
   margin: 15px;
   padding: 20px;
-  width: 350px; /* Make card wider to accommodate photos */
+  width: 400px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.mars-photo {
+.carousel .slide img {
   width: 100%;
   height: auto;
-  max-width: 300px;
-  margin-top: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-height: 300px;
+  object-fit: cover;
 }
