@@ -1,26 +1,26 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #1e1e1e; /* Dark background for a space-like feel */
-  color: white; /* Light text for better contrast */
+  background-color: #1e1e1e; /* Dark background */
+  color: white; /* Light text for contrast */
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
 h1 {
-  color: #aa27f1; /* Purple color for the title */
+  color: #ff4d00; /* Title color */
   font-size: 2.5rem;
   margin: 20px 0;
 }
 
 h2 {
-  color: #61dafb; /* Light blue for the sol titles */
+  color: #61dafb; /* Subtitle color */
   font-size: 1.8rem;
   margin: 15px 0;
 }
 
 p {
-  font-size: 1.2rem; /* Slightly larger text for readability */
+  font-size: 1.2rem;
   margin: 5px 0;
 }
 
@@ -32,18 +32,19 @@ p {
 }
 
 .weather-card {
-  background-color: #282c34; /* Dark card background */
+  background-color: #282c34;
   border-radius: 8px;
   margin: 15px;
   padding: 20px;
-  width: 300px;
+  width: 350px; /* Make card wider to accommodate photos */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.weather-card h2, .weather-card p {
-  margin: 10px 0;
-}
-
-.weather-card p {
-  color: #bbb; /* Lighter text color for details */
+.mars-photo {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
