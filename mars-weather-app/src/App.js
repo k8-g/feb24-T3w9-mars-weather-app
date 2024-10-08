@@ -159,6 +159,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [photos, setPhotos] = useState({}); // Store photos for each Sol
+  const [isDarkTheme, setIsDarkTheme] = useState(false); // State for theme
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -201,9 +202,22 @@ function App() {
 
   const solKeys = weatherData ? weatherData.sol_keys : [];
 
+  // Toggle theme function
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
+
   return (
-    <div>
+    <div className={isDarkTheme ? 'dark-theme' : 'light-theme'}>
       <h1>Mars Weather and Photos</h1>
+      
+      {/* Centered Theme Toggler Button */}
+      <div className="theme-toggle-container">
+        <button onClick={toggleTheme}>
+          Switch to {isDarkTheme ? 'Light' : 'Dark'} Theme
+        </button>
+      </div>
+      
       <div className="weather-container">
         {solKeys.length > 0 ? (
           solKeys.map((sol) => (
