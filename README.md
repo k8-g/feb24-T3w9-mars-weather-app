@@ -24,3 +24,8 @@ Visual
 - 7 days (Sol's) per row (there are 7 days per week, 4 weeks per month and 24 months per year)
 - Carousel slider
 - 
+
+Hooks
+- useState
+- useEffect
+- MORE hooks!

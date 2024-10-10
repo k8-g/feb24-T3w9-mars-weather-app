@@ -155,12 +155,18 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import defaul
 import './App.css';
 
 function App() {
-  const [weatherData, setWeatherData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [photos, setPhotos] = useState({}); // Store photos for each Sol
-  const [isDarkTheme, setIsDarkTheme] = useState(false); // State for theme
+  // useState to manage weather data
+  const [weatherData, setWeatherData] = useState(null); 
+  // useState to manage loading state
+  const [loading, setLoading] = useState(true); 
+  // useState to manage any error during data fetching
+  const [error, setError] = useState(null); 
+  // useState to store photos for each Sol (Mars day)
+  const [photos, setPhotos] = useState({}); 
+  // useState to toggle between light and dark themes
+  const [isDarkTheme, setIsDarkTheme] = useState(false); 
 
+  // useEffect is used for fetching data from NASA APIs when the component mounts
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
@@ -168,9 +174,9 @@ function App() {
           `https://api.nasa.gov/insight_weather/?api_key=Af0NwRAemSXwCDBdtB2J1MZuJOTzfhKMxtD5oTAe&feedtype=json&ver=1.0`
         );
         const weatherData = await weatherResponse.json();
-        setWeatherData(weatherData);
+        setWeatherData(weatherData); // Update weather data state
 
-        // Fetch Mars photos for each Sol and pair them with weather data
+        // Fetch Mars Rover photos for each Sol (Mars day) and pair them with weather data
         const solKeys = weatherData.sol_keys;
         const photoFetches = solKeys.map(async (sol) => {
           const photoResponse = await fetch(
@@ -180,31 +186,33 @@ function App() {
           return { sol, photos: photoData.photos.slice(0, 3) }; // Limit to 3 photos per Sol
         });
 
+        // Combine all the photo results into one object
         const solPhotos = await Promise.all(photoFetches);
         const pairedPhotos = solPhotos.reduce((acc, { sol, photos }) => {
           acc[sol] = photos.length ? photos : []; // Store up to 3 photos per Sol
           return acc;
         }, {});
-        setPhotos(pairedPhotos);
+        setPhotos(pairedPhotos); // Update photos state
 
-        setLoading(false);
+        setLoading(false); // Set loading to false once data is fetched
       } catch (err) {
-        setError("Failed to fetch data");
-        setLoading(false);
+        setError("Failed to fetch data"); // Set error message if fetching fails
+        setLoading(false); // Ensure loading is false even if an error occurs
       }
     };
 
-    fetchWeatherData();
-  }, []);
+    fetchWeatherData(); // Call the data fetching function
+  }, []); 
+  // The empty array [] as the second argument ensures this effect runs only once, after the initial render (componentDidMount equivalent)
 
   if (loading) return <div>Loading Mars Weather and Photos...</div>;
   if (error) return <div>{error}</div>;
 
   const solKeys = weatherData ? weatherData.sol_keys : [];
 
-  // Toggle theme function
+  // Function to toggle between light and dark themes
   const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
+    setIsDarkTheme(!isDarkTheme); // Update theme state
   };
 
   return (
