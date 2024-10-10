@@ -23,7 +23,11 @@ Feature ideas
 Visual
 - 7 days (Sol's) per row (there are 7 days per week, 4 weeks per month and 24 months per year)
 - Carousel slider
-- 
+- First row of website showing:
+    - Slow spinning Mars Globe
+    - Mars Facts
+    - Card-like display showing the Rovers name, image and current live time on Mars?
+    - Finish row - New row start with the carousel slider of Sol's.
 
 Hooks
 - useState

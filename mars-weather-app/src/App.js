@@ -236,7 +236,13 @@ function App() {
               <p>Pressure: {weatherData[sol].PRE?.av || "No data"} Pa</p>
               <p>Wind Speed: {weatherData[sol].HWS?.av || "No data"} m/s</p>
 
-              {/* Display the carousel for the corresponding Sol's photos */}
+              {/* 
+                Carousel Component:
+                - This carousel component is used to display up to 3 Mars Rover photos for each Sol.
+                - `showThumbs={false}`: Hides the thumbnail navigation below the carousel.
+                - `infiniteLoop`: Enables continuous looping (after the last image, it goes back to the first).
+                - `autoPlay`: Automatically moves to the next image after a delay.
+              */}
               {photos[sol] && photos[sol].length > 0 ? (
                 <Carousel showThumbs={false} infiniteLoop autoPlay>
                   {photos[sol].map((photo, index) => (
