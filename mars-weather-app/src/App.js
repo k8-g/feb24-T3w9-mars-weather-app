@@ -153,6 +153,7 @@ import React, { useState, useEffect } from "react";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import default styles
 import './App.css';
+import marsGif from './assets/marsGif.gif';
 
 function App() {
   // useState to manage weather data
@@ -165,6 +166,8 @@ function App() {
   const [photos, setPhotos] = useState({}); 
   // useState to toggle between light and dark themes
   const [isDarkTheme, setIsDarkTheme] = useState(false); 
+  // useState to toggle visibility of the Mars globe
+  const [showGlobe, setShowGlobe] = useState(true); // New state for globe visibility
 
   // useEffect is used for fetching data from NASA APIs when the component mounts
   useEffect(() => {
@@ -215,6 +218,11 @@ function App() {
     setIsDarkTheme(!isDarkTheme); // Update theme state
   };
 
+  // Function to toggle the visibility of the Mars globe
+  const toggleGlobe = () => {
+    setShowGlobe((prev) => !prev);
+  }
+
   return (
     <div className={isDarkTheme ? 'dark-theme' : 'light-theme'}>
       <h1>Mars Weather and Photos</h1>
@@ -224,6 +232,40 @@ function App() {
         <button onClick={toggleTheme}>
           Switch to {isDarkTheme ? 'Light' : 'Dark'} Theme
         </button>
+      </div>
+
+      {/* Centered Globe Toggler Button */}
+      <div className="globe-toggle-container">
+        <button onClick={toggleGlobe}>
+          {showGlobe ? 'Hide' : 'Show'} Mars Globe
+        </button>
+      </div>
+
+      {/* Flex container for globe and facts */}
+      <div className="globe-facts-container">
+        {/* Display the spinning Mars globe */}
+        {showGlobe && (
+          <div className="globe-container">
+            <img src={marsGif} alt="Spinning Mars Globe" className="mars-globe" />
+          </div>
+        )}
+        
+        {/* Facts Area */}
+        <div className={`facts-container ${isDarkTheme ? 'dark-theme' : ''}`}>
+          <h3>Mars Facts</h3>
+          <ul>
+            <li>Mars is the fourth planet from the Sun.</li>
+            <li>Mars is known as the Red Planet due to iron oxide (rust) on its surface.</li>
+            <li>The tallest volcano in the solar system, Olympus Mons, is on Mars.</li>
+            <li>Mars has two moons: Phobos and Deimos.</li>
+            <li>A Martian day is approximately 24 hours and 37 minutes long.</li>
+            <li>The average temperature on Mars is about -62 degrees Celsius.</li>
+            <li>Mars has the largest dust storms in the solar system, which can cover the entire planet.</li>
+            <li>There is evidence that liquid water once flowed on the surface of Mars.</li>
+            <li>NASA's Perseverance rover is currently exploring the Jezero Crater on Mars.</li>
+            <li>Why did Mars break up with Saturn? Because Saturn had too many rings!</li>
+          </ul>
+        </div>
       </div>
       
       <div className="weather-container">

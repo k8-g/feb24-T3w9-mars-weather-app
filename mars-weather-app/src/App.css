@@ -122,3 +122,50 @@ p {
   background-color: white; /* Light background */
   color: black; /* Dark text for light theme */
 }
+
+.facts-container {
+  background-color: white; /* Default background for light theme */
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.facts-container.dark-theme {
+  background-color: #444; /* Darker background for dark theme */
+}
+
+/* Flex container for globe and facts */
+.globe-facts-container {
+  display: flex; /* Use flexbox to arrange items in a row */
+  justify-content: center; /* Center the items horizontally */
+  align-items: flex-start; /* Align items at the start of the flex container */
+  margin: 20px 0; /* Space around the globe and facts area */
+}
+
+.globe-container {
+  display: flex;
+  justify-content: center;
+  margin-right: 20px; /* Space between the globe and facts */
+}
+
+.mars-globe {
+  width: 20dvw; /* Width of the globe */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.globe-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Space between button and globe */
+}
+
+ul {
+  padding-left: 20px; /* Adjust padding to align text with bullets */
+
+}
+
+li {
+  text-align: left; /* Align text to the left */
+  padding-left: 5px; /* Add a small padding for better readability */
+}
